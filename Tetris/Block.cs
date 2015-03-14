@@ -47,5 +47,14 @@ namespace Tetris
             this.X = this.Y;
             this.Y = -x;
         }
+
+        /// <summary>
+        /// オブジェクトの複製
+        /// </summary>
+        /// <returns>複製したオブジェクト</returns>
+        public Block Clone()
+        {
+            return new Block(new Point(this.X, this.Y), this.BlockType);
+        }
     }
 }

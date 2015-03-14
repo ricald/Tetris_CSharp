@@ -37,17 +37,25 @@ namespace Tetris
         /// <param name="blockPosition">ブロック位置</param>
         public Tetromino(TetrominoType tetrominoType, Point blockPosition)
         {
+            // テトロミノ種別の初期化
             this.TetrominoType = tetrominoType;
+
+            // Ｘ座標の初期化
             this.X = blockPosition.X;
+
+            // Ｙ座標の初期化
             this.Y = blockPosition.Y;
-            this.Blocks = Tetromino.blockShapeDictionary[tetrominoType];
+
+            // ブロック達の初期化
+            this.Blocks = new List<Block>();
+            foreach (var block in Tetromino.blockShapeDictionary[tetrominoType])
+            {
+                this.Blocks.Add(block.Clone());
+            }
         }
 
         /// <summary>テトロミノ種別</summary>
         public TetrominoType TetrominoType { get; set; }
-
-        /// <summary>ブロック位置</summary>
-        public Point Position { get; set; }
 
         /// <summary>ブロック達</summary>
         public List<Block> Blocks { get; set; }
