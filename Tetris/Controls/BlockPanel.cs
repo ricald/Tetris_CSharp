@@ -9,6 +9,7 @@ namespace Tetris.Controls
     using System.Collections.Generic;
     using System.Drawing;
     using System.Windows.Forms;
+    using Tetris.Models.Blocks;
 
     /// <summary>
     /// ブロックパネルクラス

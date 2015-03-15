@@ -93,14 +93,14 @@
       <DependentUpon>BlockPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="IApplicationView.cs" />
-    <Compile Include="RecordData.cs" />
-    <Compile Include="Sound.cs" />
-    <Compile Include="TetrominoType.cs" />
-    <Compile Include="Model.cs" />
-    <Compile Include="MovableModel.cs" />
-    <Compile Include="Tetromino.cs" />
-    <Compile Include="Block.cs" />
-    <Compile Include="BlockType.cs" />
+    <Compile Include="Models\Data\RecordData.cs" />
+    <Compile Include="Models\Sound\Sound.cs" />
+    <Compile Include="Models\Blocks\TetrominoType.cs" />
+    <Compile Include="Models\Blocks\Model.cs" />
+    <Compile Include="Models\Blocks\MovableModel.cs" />
+    <Compile Include="Models\Blocks\Tetromino.cs" />
+    <Compile Include="Models\Blocks\Block.cs" />
+    <Compile Include="Models\Blocks\BlockType.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

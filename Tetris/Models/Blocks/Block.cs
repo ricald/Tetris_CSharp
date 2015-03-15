@@ -3,7 +3,7 @@
 //     Copyright © 2015 Ricald All Rights Reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace Tetris
+namespace Tetris.Models.Blocks
 {
     using System.Collections.Generic;
     using System.Drawing;

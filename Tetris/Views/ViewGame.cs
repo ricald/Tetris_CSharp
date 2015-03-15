@@ -11,6 +11,7 @@ namespace Tetris.Views
     using System.Windows.Input;
     using Microsoft.VisualBasic;
     using Smart.Navigation;
+    using Tetris.Models.Blocks;
 
     /// <summary>
     /// ゲーム画面View

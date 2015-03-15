@@ -1,16 +1,13 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="BlockType.cs" company="CompanyName">
+// <copyright file="TetrominoType.cs" company="CompanyName">
 //     Copyright © 2015 Ricald All Rights Reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace Tetris
+namespace Tetris.Models.Blocks
 {
-    /// <summary>ブロックタイプ列挙体</summary>
-    public enum BlockType
+    /// <summary>テトロミノタイプ列挙体</summary>
+    public enum TetrominoType
     {
-        /// <summary>無し</summary>
-        None,
-
         /// <summary>I-テトリミノ（水色）</summary>
         I,
 
@@ -32,16 +29,13 @@ namespace Tetris
         /// <summary>T-テトリミノ（紫）</summary>
         T,
 
-        /// <summary>H-テトリミノ（顔）</summary>
-        H1,
+        /// <summary>H-テトリミノ</summary>
+        H,
+        
+        /// <summary>K-テトリミノ</summary>
+        K,
 
-        /// <summary>H-テトリミノ（胸）</summary>
-        H2,
-
-        /// <summary>H-テトリミノ（腰）</summary>
-        H3,
-
-        /// <summary>H-テトリミノ（脚）</summary>
-        H4,
+        /// <summary>P-テトリミノ</summary>
+        P,
     }
 }

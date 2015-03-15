@@ -3,7 +3,7 @@
 //     Copyright © 2015 Ricald All Rights Reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace Tetris
+namespace Tetris.Models.Blocks
 {
     /// <summary>
     /// 移動可能モデルクラス
