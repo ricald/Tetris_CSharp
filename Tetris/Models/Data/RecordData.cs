@@ -103,9 +103,9 @@ namespace Tetris
             // スコアをセーブする
             string fileName = @"record.xml";
 
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<RecordDataInfo>));
             using (System.IO.StreamWriter sw = new System.IO.StreamWriter(fileName, false, new System.Text.UTF8Encoding(false)))
             {
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<RecordDataInfo>));
                 serializer.Serialize(sw, this.recordDataInfoList);
             }
 
@@ -123,12 +123,11 @@ namespace Tetris
             // スコアをロードする
             string fileName = @"record.xml";
 
-            System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<RecordDataInfo>));
-
             if (System.IO.File.Exists(fileName))
             {
                 using (System.IO.StreamReader sr = new System.IO.StreamReader(fileName, new System.Text.UTF8Encoding(false)))
                 {
+                    System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<RecordDataInfo>));
                     this.recordDataInfoList = (List<RecordDataInfo>)serializer.Deserialize(sr);
                 }
             }
