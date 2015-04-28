@@ -104,8 +104,10 @@ namespace Tetris
             string fileName = @"record.xml";
 
             System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<RecordDataInfo>));
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(fileName, false, new System.Text.UTF8Encoding(false));
-            serializer.Serialize(sw, this.recordDataInfoList);
+            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(fileName, false, new System.Text.UTF8Encoding(false)))
+            {
+                serializer.Serialize(sw, this.recordDataInfoList);
+            }
 
             return ret;
         }
@@ -125,8 +127,10 @@ namespace Tetris
 
             if (System.IO.File.Exists(fileName))
             {
-                System.IO.StreamReader sr = new System.IO.StreamReader(fileName, new System.Text.UTF8Encoding(false));
-                this.recordDataInfoList = (List<RecordDataInfo>)serializer.Deserialize(sr);
+                using (System.IO.StreamReader sr = new System.IO.StreamReader(fileName, new System.Text.UTF8Encoding(false)))
+                {
+                    this.recordDataInfoList = (List<RecordDataInfo>)serializer.Deserialize(sr);
+                }
             }
             else
             {
