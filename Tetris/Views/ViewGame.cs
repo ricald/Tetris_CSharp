@@ -257,72 +257,49 @@ namespace Tetris.Views
                 return;
             }
 
-            if (Keyboard.IsKeyDown(Key.Left))
+            // 「←」キー押下
+            // (キーをすぐ離しても連続入力となるため3,5フレーム目はスキップし、1,7,9,11...フレームで受け付けるようにする)
+            if (this.KeyInput.PressedFlames[Key.Left] != 3 && this.KeyInput.PressedFlames[Key.Left] != 5 && this.KeyInput.PressedFlames[Key.Left] % 2 == 1)
             {
-                //------------------------------
-                // 「←」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Left] != 2 && this.KeyInput.PressedFlames[Key.Left] != 4 && this.KeyInput.PressedFlames[Key.Left] % 2 == 0)
+                // テトロミノを左に移動する
+                this.BlockPanel.MoveTetorominoLeft();
+            }
+
+            // 「→」キー押下
+            // (キーをすぐ離しても連続入力となるため3,5フレーム目はスキップし、1,7,9,11...フレームで受け付けるようにする)
+            if (this.KeyInput.PressedFlames[Key.Right] != 3 && this.KeyInput.PressedFlames[Key.Right] != 5 && this.KeyInput.PressedFlames[Key.Right] % 2 == 1)
+            {
+                // テトロミノを右に移動する
+                this.BlockPanel.MoveTetorominoRight();
+            }
+
+            // 「↑」キー押下
+            if (this.KeyInput.PressedFlames[Key.Up] == 1)
+            {
+                // テトロミノを左回転する
+                this.BlockPanel.RotateTetorominoLeft();
+            }
+
+            // 「↓」キー押下
+            if (this.KeyInput.PressedFlames[Key.Down] % 2 == 1)
+            {
+                if (this.BlockPanel.FallingTetromino != null)
                 {
-                    // テトロミノを左に移動する
-                    this.BlockPanel.MoveTetorominoLeft();
+                    // スコア更新
+                    this.Score += 1;
+
+                    // テトロミノを下に移動する
+                    this.dropCount = this.dropFrames;
                 }
             }
 
-            if (Keyboard.IsKeyDown(Key.Right))
+            // 「Enter」キー押下
+            if (this.KeyInput.PressedFlames[Key.Enter] == 1)
             {
-                //------------------------------
-                // 「→」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Right] != 2 && this.KeyInput.PressedFlames[Key.Right] != 4 && this.KeyInput.PressedFlames[Key.Right] % 2 == 0)
+                // ゲームオーバー中ならタイトル画面に遷移
+                if (this.BlockPanel.FallingTetromino == null)
                 {
-                    // テトロミノを右に移動する
-                    this.BlockPanel.MoveTetorominoRight();
-                }
-            }
-
-            if (Keyboard.IsKeyDown(Key.Up))
-            {
-                //------------------------------
-                // 「↑」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Up] == 0)
-                {
-                    // テトロミノを左回転する
-                    this.BlockPanel.RotateTetorominoLeft();
-                }
-            }
-
-            if (Keyboard.IsKeyDown(Key.Down))
-            {
-                //------------------------------
-                // 「↓」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Down] % 2 == 0)
-                {
-                    if (this.BlockPanel.FallingTetromino != null)
-                    {
-                        // スコア更新
-                        this.Score += 1;
-
-                        // テトロミノを下に移動する
-                        this.dropCount = this.dropFrames;
-                    }
-                }
-            }
-
-            if (Keyboard.IsKeyDown(Key.Enter))
-            {
-                //------------------------------
-                // 「Enter」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Enter] == 0)
-                {
-                    // ゲームオーバー中ならタイトル画面に遷移
-                    if (this.BlockPanel.FallingTetromino == null)
-                    {
-                        Navigator.Forward(ViewId.Title);
-                    }
+                    Navigator.Forward(ViewId.Title);
                 }
             }
         }

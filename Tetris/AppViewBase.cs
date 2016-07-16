@@ -38,7 +38,7 @@ namespace Tetris
             Sound.Instance.Stop();
 
             base.OnViewClose();
-        } 
+        }
 
         /// <summary>
         /// 処理実行
@@ -56,7 +56,9 @@ namespace Tetris
         /// </summary>
         private void ProcessInputKey()
         {
-            if (Keyboard.IsKeyDown(Key.Left))
+            bool isActive = Program.IsMainFormActive();
+
+            if (isActive && Keyboard.IsKeyDown(Key.Left))
             {
                 //------------------------------
                 // 「←」キー押下
@@ -70,7 +72,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Left] = 0;
             }
 
-            if (Keyboard.IsKeyDown(Key.Right))
+            if (isActive && Keyboard.IsKeyDown(Key.Right))
             {
                 //------------------------------
                 // 「→」キー押下
@@ -84,7 +86,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Right] = 0;
             }
 
-            if (Keyboard.IsKeyDown(Key.Up))
+            if (isActive && Keyboard.IsKeyDown(Key.Up))
             {
                 //------------------------------
                 // 「↑」キー押下
@@ -98,7 +100,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Up] = 0;
             }
 
-            if (Keyboard.IsKeyDown(Key.Down))
+            if (isActive && Keyboard.IsKeyDown(Key.Down))
             {
                 //------------------------------
                 // 「↓」キー押下
@@ -112,7 +114,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Down] = 0;
             }
 
-            if (Keyboard.IsKeyDown(Key.Enter))
+            if (isActive && Keyboard.IsKeyDown(Key.Enter))
             {
                 //------------------------------
                 // 「Enter」キー押下

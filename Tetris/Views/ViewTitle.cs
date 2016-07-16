@@ -91,53 +91,38 @@ namespace Tetris.Views
         /// </summary>
         private void ProcessInputKey()
         {
-            if (Keyboard.IsKeyDown(Key.Up))
+            // 「↑」キー押下
+            if (this.KeyInput.PressedFlames[Key.Up] == 1)
             {
-                //------------------------------
-                // 「↑」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Up] == 0)
+                if (this.selectedIndex > 0)
                 {
-                    if (this.selectedIndex > 0)
-                    {
-                        this.SelectedIndex--;
-                    }
+                    this.SelectedIndex--;
                 }
             }
 
-            if (Keyboard.IsKeyDown(Key.Down))
+            // 「↓」キー押下
+            if (this.KeyInput.PressedFlames[Key.Down] == 1)
             {
-                //------------------------------
-                // 「↓」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Down] == 0)
+                if (this.selectedIndex < 2)
                 {
-                    if (this.selectedIndex < 2)
-                    {
-                        this.SelectedIndex++;
-                    }
+                    this.SelectedIndex++;
                 }
             }
 
-            if (Keyboard.IsKeyDown(Key.Enter))
+            // 「Enter」キー押下
+            if (this.KeyInput.PressedFlames[Key.Enter] == 1)
             {
-                //------------------------------
-                // 「Enter」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Enter] == 0)
+                if (this.SelectedIndex == 0)
                 {
-                    if (this.SelectedIndex == 0)
-                    {
-                        Navigator.Forward(ViewId.Game);
-                    }
-                    else if (this.selectedIndex == 1)
-                    {
-                        Navigator.Forward(ViewId.Ranking);
-                    }
-                    else if (this.selectedIndex == 2)
-                    {
-                        Navigator.Exit();
-                    }
+                    Navigator.Forward(ViewId.Game);
+                }
+                else if (this.selectedIndex == 1)
+                {
+                    Navigator.Forward(ViewId.Ranking);
+                }
+                else if (this.selectedIndex == 2)
+                {
+                    Navigator.Exit();
                 }
             }
         }

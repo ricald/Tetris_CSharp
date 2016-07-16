@@ -101,15 +101,10 @@ namespace Tetris.Views
         /// </summary>
         private void ProcessInputKey()
         {
-            if (Keyboard.IsKeyDown(Key.Enter))
+            // 「Enter」キー押下
+            if (this.KeyInput.PressedFlames[Key.Enter] == 1)
             {
-                //------------------------------
-                // 「Enter」キー押下
-                //------------------------------
-                if (this.KeyInput.PressedFlames[Key.Enter] == 0)
-                {
-                    Navigator.Forward(ViewId.Title);
-                }
+                Navigator.Forward(ViewId.Title);
             }
         }
     }

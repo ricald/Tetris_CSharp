@@ -16,6 +16,9 @@ namespace Tetris
     /// </summary>
     internal static class Program
     {
+        /// <summary>メインフォーム</summary>
+        private static Form mainForm;
+
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
@@ -24,7 +27,25 @@ namespace Tetris
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+
+            mainForm = new FormMain();
+            Application.Run(mainForm);
+        }
+
+        /// <summary>
+        /// メインフォームがアクティブかどうかを判断
+        /// </summary>
+        /// <returns>true：アクティブである、false：アクティブでない</returns>
+        public static bool IsMainFormActive()
+        {
+            if (Form.ActiveForm == mainForm)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
