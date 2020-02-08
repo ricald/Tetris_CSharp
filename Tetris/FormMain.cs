@@ -17,7 +17,7 @@ namespace Tetris
     public partial class FormMain : Form
     {
         /// <summary>画面遷移ナビゲータ</summary>
-        private readonly Navigator navigator;
+        private Navigator navigator;
 
         /// <summary>
         /// コンストラクタ
@@ -57,6 +57,7 @@ namespace Tetris
         /// <param name="e">イベント引数</param>
         private void Navigator_Exited(object sender, ViewExitEventArgs e)
         {
+            this.navigator = null;
             this.Close();
         }
 
@@ -72,6 +73,20 @@ namespace Tetris
             if (view != null)
             {
                 view.OnExecute();
+            }
+        }
+
+        /// <summary>
+        /// FormClosedイベントハンドラ
+        /// </summary>
+        /// <param name="sender">通知元オブジェクト</param>
+        /// <param name="e">イベント引数</param>
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.navigator != null)
+            {
+                this.navigator.Exit();
+                this.navigator = null;
             }
         }
     }

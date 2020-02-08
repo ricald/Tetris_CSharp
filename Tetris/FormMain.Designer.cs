@@ -56,6 +56,7 @@
             this.DoubleBuffered = true;
             this.Name = "FormMain";
             this.Text = "Tetris";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.ResumeLayout(false);
 
         }
