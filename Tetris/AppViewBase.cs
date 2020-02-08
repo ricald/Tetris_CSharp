@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace Tetris
 {
+    using System.Linq;
     using System.Windows.Forms;
     using System.Windows.Input;
     using Smart.Navigation.Context;
@@ -58,7 +59,7 @@ namespace Tetris
         {
             bool isActive = Program.IsMainFormActive();
 
-            if (isActive && Keyboard.IsKeyDown(Key.Left))
+            if (isActive && new Key[] { Key.Left, Key.S }.Any(key => Keyboard.IsKeyDown(key)))
             {
                 //------------------------------
                 // 「←」キー押下
@@ -72,7 +73,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Left] = 0;
             }
 
-            if (isActive && Keyboard.IsKeyDown(Key.Right))
+            if (isActive && new Key[] { Key.Right, Key.F }.Any(key => Keyboard.IsKeyDown(key)))
             {
                 //------------------------------
                 // 「→」キー押下
@@ -86,7 +87,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Right] = 0;
             }
 
-            if (isActive && Keyboard.IsKeyDown(Key.Up))
+            if (isActive && new Key[] { Key.Up, Key.E, Key.J }.Any(key => Keyboard.IsKeyDown(key)))
             {
                 //------------------------------
                 // 「↑」キー押下
@@ -100,7 +101,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Up] = 0;
             }
 
-            if (isActive && Keyboard.IsKeyDown(Key.Down))
+            if (isActive && new Key[] { Key.Down, Key.D }.Any(key => Keyboard.IsKeyDown(key)))
             {
                 //------------------------------
                 // 「↓」キー押下
@@ -114,7 +115,7 @@ namespace Tetris
                 this.KeyInput.PressedFlames[Key.Down] = 0;
             }
 
-            if (isActive && Keyboard.IsKeyDown(Key.Enter))
+            if (isActive && new Key[] { Key.Enter }.Any(key => Keyboard.IsKeyDown(key)))
             {
                 //------------------------------
                 // 「Enter」キー押下
