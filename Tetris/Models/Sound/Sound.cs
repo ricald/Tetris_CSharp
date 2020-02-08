@@ -7,7 +7,6 @@ namespace Tetris
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.DirectX.AudioVideoPlayback;
 
     /// <summary>音声ID</summary>
     public enum SoundId
