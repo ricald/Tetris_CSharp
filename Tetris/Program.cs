@@ -36,7 +36,7 @@ namespace Tetris
         /// メインフォームがアクティブかどうかを判断
         /// </summary>
         /// <returns>true：アクティブである、false：アクティブでない</returns>
-        public static bool IsMainFormActive()
+        internal static bool IsMainFormActive()
         {
             if (Form.ActiveForm == mainForm)
             {
